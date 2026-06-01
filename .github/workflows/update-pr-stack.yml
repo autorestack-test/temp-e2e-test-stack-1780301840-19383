@@ -1,0 +1,17 @@
+name: Update PR Stack
+
+on:
+  pull_request:
+    types: [closed, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-pr-stack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Phlogistique/autorestack-action@b87a82ee8e2f3b261a985b4c1bf756a0796e3267
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
